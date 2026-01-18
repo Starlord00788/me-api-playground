@@ -21,8 +21,7 @@ A lightweight, self-hosted backend system that stores a candidate's professional
 
 The Me-API Playground demonstrates backend fundamentals, API design, and database modeling through a practical candidate profile management system. It's designed to showcase professional capabilities in a clean, deployable format.
 
-**Live Demo:** [Demo coming soon - set up your own in 5 minutes!]  
-**API Base URL:** [Your deployed API URL]
+**API Base URL:** https://me-api-playground-mfnb.onrender.com
 
 > 💡 **Quick Start**: Use the provided Docker Compose file to get everything running locally in under 2 minutes!
 
