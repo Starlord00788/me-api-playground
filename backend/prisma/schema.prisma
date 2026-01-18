@@ -6,10 +6,10 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
-  // For PostgreSQL in production, change provider to "postgresql"
-  // provider = "postgresql"
+  // For local development with SQLite, change provider to "sqlite"
+  // provider = "sqlite"
 }
 
 model Profile {
@@ -17,10 +17,10 @@ model Profile {
   name        String
   email       String    @unique
   education   String?
-  skills      String    // JSON string for SQLite compatibility
+  skills      String[]  // PostgreSQL array
   projects    Project[]
   work        Work[]
-  links       String?   // JSON string for SQLite compatibility
+  links       Json?     // PostgreSQL JSON
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
@@ -31,7 +31,7 @@ model Project {
   id          String   @id @default(uuid())
   title       String
   description String
-  links       String   // JSON string for SQLite compatibility
+  links       String[]  // PostgreSQL array
   profileId   String
   profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())

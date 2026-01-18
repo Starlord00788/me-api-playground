@@ -448,16 +448,13 @@ const projects = await fetch('https://your-api-url/api/projects?skill=Python')
 
 ## 🔗 Resume Link
 
-**[View My Complete Resume](https://your-resume-link.com)** ← *Replace with your actual resume link*
+**[View My Complete Resume]** https://drive.google.com/file/d/1BKKAVC1Q5UpbSLYiKSKRbjSoBTswLvLy/view?usp=sharing
 
 ## 📞 Contact & Links
 
-- **Portfolio:** https://your-portfolio.com
-- **GitHub:** https://github.com/your-username  
-- **LinkedIn:** https://linkedin.com/in/your-profile
-- **Email:** your.email@example.com
-
-*Update these links with your actual information*
+- **GitHub:** https://github.com/Starlord00788
+- **LinkedIn:** https://www.linkedin.com/in/palash-singhal-299134293/
+- **Email:** 231220043@nitdelhi.ac.in
 
 ## 📄 License
 

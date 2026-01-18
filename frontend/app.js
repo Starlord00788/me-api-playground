@@ -1,5 +1,5 @@
 // Configuration
-const API_BASE_URL = 'http://localhost:3002';
+const API_BASE_URL = 'https://me-api-playground-backend-45ch.onrender.com';
 
 // DOM Elements
 const profileContainer = document.getElementById('profileContainer');
@@ -85,9 +85,11 @@ async function loadProfile() {
 
 // Display Profile
 function displayProfile(profile) {
-    // Parse JSON strings for SQLite compatibility
-    const links = profile.links ? JSON.parse(profile.links) : {};
-    const skills = Array.isArray(profile.skills) ? profile.skills : JSON.parse(profile.skills || '[]');
+    // Handle both PostgreSQL (native) and SQLite (JSON string) formats
+    const links = profile.links ? 
+        (typeof profile.links === 'object' ? profile.links : JSON.parse(profile.links)) : {};
+    const skills = Array.isArray(profile.skills) ? 
+        profile.skills : JSON.parse(profile.skills || '[]');
     
     const linksHtml = links ? Object.entries(links)
         .map(([key, value]) => `<a href="${value}" target="_blank">${key}</a>`)
@@ -98,7 +100,8 @@ function displayProfile(profile) {
     ).join('');
 
     const projectsHtml = profile.projects.map(project => {
-        const projectLinks = Array.isArray(project.links) ? project.links : JSON.parse(project.links || '[]');
+        const projectLinks = Array.isArray(project.links) ? 
+            project.links : JSON.parse(project.links || '[]');
         return `
         <div class="project-card">
             <h4>${project.title}</h4>

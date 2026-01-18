@@ -6,31 +6,31 @@ const seedData = {
   name: "Alex Johnson",
   email: "alex.johnson@email.com",
   education: "B.S. Computer Science, University of Technology (2021)",
-  skills: JSON.stringify([
+  skills: [
     "JavaScript", "TypeScript", "Node.js", "React", "Python", 
     "PostgreSQL", "Express.js", "MongoDB", "Docker", "AWS",
     "REST APIs", "GraphQL", "Git", "Prisma", "Next.js"
-  ]),
+  ],
   projects: [
     {
       title: "E-commerce Platform",
       description: "Full-stack e-commerce application with user authentication, payment processing, and inventory management. Built with React, Node.js, and PostgreSQL.",
-      links: JSON.stringify(["https://github.com/alexjohnson/ecommerce-platform", "https://ecommerce-demo.vercel.app"])
+      links: ["https://github.com/alexjohnson/ecommerce-platform", "https://ecommerce-demo.vercel.app"]
     },
     {
       title: "Task Management API",
       description: "RESTful API for task management with team collaboration features. Implemented real-time updates using WebSockets and Redis for caching.",
-      links: JSON.stringify(["https://github.com/alexjohnson/task-api"])
+      links: ["https://github.com/alexjohnson/task-api"]
     },
     {
       title: "Weather Dashboard",
       description: "React-based weather dashboard with location search and 7-day forecasts. Integrates with OpenWeatherMap API and uses responsive design.",
-      links: JSON.stringify(["https://github.com/alexjohnson/weather-dashboard", "https://weather-dash-demo.netlify.app"])
+      links: ["https://github.com/alexjohnson/weather-dashboard", "https://weather-dash-demo.netlify.app"]
     },
     {
       title: "AI Chat Bot",
       description: "Python-based chatbot using natural language processing. Deployed on AWS Lambda with DynamoDB for conversation storage.",
-      links: JSON.stringify(["https://github.com/alexjohnson/ai-chatbot"])
+      links: ["https://github.com/alexjohnson/ai-chatbot"]
     }
   ],
   work: [
@@ -53,11 +53,11 @@ const seedData = {
       description: "Assisted in machine learning research projects. Developed data visualization tools using Python and D3.js. Published research on neural network optimization techniques."
     }
   ],
-  links: JSON.stringify({
+  links: {
     github: "https://github.com/alexjohnson",
     linkedin: "https://linkedin.com/in/alex-johnson-dev",
     portfolio: "https://alexjohnson.dev"
-  })
+  }
 };
 
 async function seed() {
