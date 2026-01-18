@@ -1,0 +1,13 @@
+version: 1
+build:
+  commands:
+    - cd backend && npm install
+    - cd backend && npx prisma generate
+    - cd backend && npx prisma migrate deploy
+start:
+  command: cd backend && npm start
+env:
+  - key: NODE_ENV
+    value: production
+  - key: DATABASE_URL
+    sync: false
