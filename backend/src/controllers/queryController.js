@@ -23,12 +23,12 @@ const queryController = {
       });
 
       const projects = profiles.flatMap(profile => {
-        // Parse skills JSON string for SQLite
-        const skills = JSON.parse(profile.skills || '[]');
+        // Skills is already a PostgreSQL array
+        const skills = profile.skills || [];
         if (skills.includes(skill)) {
           return profile.projects.map(project => ({
             ...project,
-            links: JSON.parse(project.links || '[]'),
+            links: project.links || [], // Links is already a JSON object in PostgreSQL
             profileName: profile.name,
             profileId: profile.id
           }));
@@ -57,8 +57,8 @@ const queryController = {
 
       const skillCount = {};
       profiles.forEach(profile => {
-        // Parse JSON string for SQLite
-        const skills = JSON.parse(profile.skills || '[]');
+        // Skills is already a PostgreSQL array
+        const skills = profile.skills || [];
         skills.forEach(skill => {
           skillCount[skill] = (skillCount[skill] || 0) + 1;
         });
@@ -94,7 +94,7 @@ const queryController = {
           OR: [
             {
               skills: {
-                contains: q // Search within JSON string
+                has: q // Search within PostgreSQL array
               }
             },
             {
@@ -132,14 +132,14 @@ const queryController = {
         }
       });
 
-      // Filter and parse results for SQLite
+      // Return results for PostgreSQL
       const results = profiles.map(profile => ({
         ...profile,
-        skills: JSON.parse(profile.skills || '[]'),
-        links: profile.links ? JSON.parse(profile.links) : {},
+        skills: profile.skills || [], // Already a PostgreSQL array
+        links: profile.links || {}, // Already a JSON object in PostgreSQL  
         projects: profile.projects.map(project => ({
           ...project,
-          links: JSON.parse(project.links || '[]')
+          links: project.links || [] // Already a JSON object in PostgreSQL
         }))
       }));
 
