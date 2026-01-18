@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+  // For PostgreSQL in production, change provider to "postgresql"
+  // provider = "postgresql"
+}
+
+model Profile {
+  id          String    @id @default(uuid())
+  name        String
+  email       String    @unique
+  education   String?
+  skills      String    // JSON string for SQLite compatibility
+  projects    Project[]
+  work        Work[]
+  links       String?   // JSON string for SQLite compatibility
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("profiles")
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  links       String   // JSON string for SQLite compatibility
+  profileId   String
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Work {
+  id          String   @id @default(uuid())
+  company     String
+  role        String
+  duration    String
+  description String
+  profileId   String
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("work")
+}

@@ -1,0 +1,45 @@
+{
+  "name": "me-api-playground",
+  "version": "1.0.0",
+  "description": "A full-stack candidate profile management system with REST API and minimal frontend",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm install --production",
+    "setup": "cd backend && npm run setup",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:seed": "cd backend && npm run db:seed",
+    "db:studio": "cd backend && npm run db:studio"
+  },
+  "keywords": [
+    "api",
+    "backend",
+    "profile",
+    "candidate",
+    "playground",
+    "fullstack",
+    "nodejs",
+    "express",
+    "postgresql",
+    "prisma"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/me-api-playground"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}

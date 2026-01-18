@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me-API Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🚀 Me-API Playground</h1>
+            <p>Candidate Profile Management System</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-section">
+            <h2>🔍 Search</h2>
+            <div class="search-controls">
+                <div class="search-group">
+                    <label for="skillSearch">Search by Skill:</label>
+                    <input type="text" id="skillSearch" placeholder="e.g., JavaScript, Python, React">
+                    <button onclick="searchBySkill()">Search Projects</button>
+                </div>
+                
+                <div class="search-group">
+                    <label for="generalSearch">General Search:</label>
+                    <input type="text" id="generalSearch" placeholder="Search projects, skills, work...">
+                    <button onclick="generalSearch()">Search All</button>
+                </div>
+                
+                <button onclick="getTopSkills()" class="secondary-btn">View Top Skills</button>
+                <button onclick="loadProfile()" class="secondary-btn">Load Profile</button>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <h2>👤 Profile</h2>
+            <div id="profileContainer" class="profile-container">
+                <p class="loading">Click "Load Profile" to view candidate information</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <h2 id="resultsTitle">📊 Results</h2>
+            <div id="resultsContainer" class="results-container">
+                <p class="loading">Search results will appear here</p>
+            </div>
+        </section>
+
+        <!-- API Status -->
+        <section class="status-section">
+            <h2>🔧 API Status</h2>
+            <div id="apiStatus" class="api-status">
+                <span class="status-indicator" id="statusIndicator">⏳</span>
+                <span id="statusText">Checking...</span>
+                <button onclick="checkHealth()" class="health-btn">Check Health</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Built with ❤️ for the Me-API Playground Challenge</p>
+            <div class="api-info">
+                <p>API Base URL: <code id="apiUrl">http://localhost:3001</code></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

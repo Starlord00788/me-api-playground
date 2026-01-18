@@ -1,0 +1,57 @@
+// SQLite version of Prisma schema for local development
+// To use this: 
+// 1. Replace contents of schema.prisma with this file
+// 2. Set DATABASE_URL="file:./dev.db" in .env
+// 3. Run: npx prisma migrate dev
+// 4. Run: npx prisma db seed
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id          String    @id @default(uuid())
+  name        String
+  email       String    @unique
+  education   String?
+  skills      String    // SQLite doesn't support arrays, so we'll use JSON string
+  projects    Project[]
+  work        Work[]
+  links       String?   // JSON string for SQLite
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("profiles")
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  links       String   // JSON string for SQLite
+  profileId   String
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Work {
+  id          String   @id @default(uuid())
+  company     String
+  role        String
+  duration    String
+  description String
+  profileId   String
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("work")
+}

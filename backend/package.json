@@ -1,0 +1,41 @@
+{
+  "name": "me-api-playground-backend",
+  "version": "1.0.0",
+  "description": "A lightweight backend system that stores candidate profile and exposes it via REST API",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "setup": "npm run db:migrate && npm run db:seed",
+    "db:migrate": "npx prisma migrate dev",
+    "db:seed": "node src/db/seed.js",
+    "db:generate": "npx prisma generate",
+    "db:studio": "npx prisma studio"
+  },
+  "keywords": [
+    "api",
+    "backend",
+    "profile",
+    "candidate",
+    "playground"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prisma": "^5.22.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "prisma": {
+    "seed": "node src/db/seed.js"
+  }
+}

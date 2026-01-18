@@ -1,0 +1,13 @@
+{
+  "name": "me-api-playground-frontend",
+  "version": "1.0.0",
+  "description": "Minimal frontend for Me-API Playground",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": ["frontend", "vanilla", "javascript"],
+  "author": "Your Name",
+  "license": "MIT"
+}
