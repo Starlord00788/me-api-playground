@@ -448,7 +448,7 @@ const projects = await fetch('https://your-api-url/api/projects?skill=Python')
 
 ## 🔗 Resume Link
 
-**[View My Complete Resume]([https://your-resume-link.com](https://drive.google.com/file/d/1BKKAVC1Q5UpbSLYiKSKRbjSoBTswLvLy/view?usp=sharing))**
+**[View My Complete Resume]** https://drive.google.com/file/d/1BKKAVC1Q5UpbSLYiKSKRbjSoBTswLvLy/view?usp=sharing
 
 ## 📞 Contact & Links
 
